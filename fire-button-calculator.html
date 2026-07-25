@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Title & Meta Tags -->
+    <title>Free Fire Fire Button Size & Placement Calculator (2026)</title>
+    <meta name="description"
+        content="Calculate exact Fire Button Size percentage and custom HUD placement coordinates for Free Fire drag shots & headshots.">
+    <meta name="keywords"
+        content="free fire fire button size calculator, custom hud fire button size ff, best fire button position free fire, drag shot fire button size">
+    <meta name="author" content="FF SENSI AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ffsensi.takiff.online/fire-button-calculator.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-162NR45QD3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-162NR45QD3');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427485526135631"
+        crossorigin="anonymous"></script>
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free Fire Fire Button Calculator",
+      "url": "https://ffsensi.takiff.online/fire-button-calculator.html",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "GameApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculates fire button size percentage based on smartphone screen size."
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header Navbar with Tools Dropdown -->
+    <div class="header-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <span class="brand-title">FF SENSI AI</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
+                
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger active"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                        <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                    </div>
+                </li>
+
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <header class="hero">
+            <h1 class="hero-title">
+                Fire Button Size <span class="text-gradient">Calculator</span>
+            </h1>
+            <p class="hero-desc">
+                Determine the perfect Fire Button Size percentage and custom HUD placement coordinates based on your phone display screen size.
+            </p>
+        </header>
+
+        <!-- Ad Banner Container -->
+        <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%; height:90px;"
+                 data-ad-client="ca-pub-8427485526135631"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Tool: Fire Button Calculator -->
+        <section class="dial-interactive-wrapper" id="fire-btn-tool">
+            <div class="dial-header">
+                <h2>Custom HUD Fire Button Size Estimator</h2>
+                <p>Calculate optimal fire button percentage for smooth drag shots</p>
+            </div>
+
+            <div class="selector-cards-grid">
+                <div class="selector-card">
+                    <label>SCREEN SIZE (INCHES)</label>
+                    <select id="screenSizeInput" class="clean-select">
+                        <option value="compact">5.5" - 6.1" Compact Screen</option>
+                        <option value="standard">6.2" - 6.6" Standard Screen</option>
+                        <option value="large">6.7" - 6.9" Large Display</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>PRIMARY WEAPON TYPE</label>
+                    <select id="weaponTypeInput" class="clean-select">
+                        <option value="drag">AR Rifles (M4A1 / AK47 Drag)</option>
+                        <option value="shotgun">Shotguns (M1887 One Tap)</option>
+                        <option value="smg">SMG Rapid Spray (MP40 / UMP)</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>ACTION CALCULATE</label>
+                    <button type="button" id="calcFireBtn" class="clean-select" style="background: var(--accent-gradient); color: #ffffff; text-align: center; border: none;">
+                        Calculate Fire Button
+                    </button>
+                </div>
+            </div>
+
+            <div id="fireOutputBox" style="display: none; background: #fff5f7; border-radius: 18px; padding: 24px; text-align: center; border: 1px solid rgba(255, 59, 92, 0.2);">
+                <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Optimal Fire Button Size</span>
+                <div id="fireResultVal" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--accent);">44%</div>
+            </div>
+        </section>
+
+        <!-- Article -->
+        <article class="seo-panel">
+            <h2>Optimal Fire Button Placement for Drag Headshots</h2>
+            <p>
+                In Free Fire, setting your fire button size between 40% and 46% at the lower third of your screen ensures maximum vertical swipe space for your thumb. Smaller fire buttons provide more thumb drag distance, while larger fire buttons offer better touch accuracy.
+            </p>
+        </article>
+
+    </main>
+
+    <footer class="footer-bar">
+        &copy; 2026 FF SENSI AI. All Rights Reserved. | 
+        <a href="privacy-policy.html" style="color: var(--text-secondary);">Privacy Policy</a> | 
+        <a href="terms.html" style="color: var(--text-secondary);">Terms of Service</a> | 
+        <a href="about.html" style="color: var(--text-secondary);">About Us</a> | 
+        <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

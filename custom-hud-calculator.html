@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Title & Meta Tags -->
+    <title>Free Fire Custom HUD Layout & Button Placement Generator (2026)</title>
+    <meta name="description"
+        content="Calculate exact Custom HUD button size percentages and placement coordinates for 2-Finger, 3-Finger & 4-Finger Claw in Free Fire & Free Fire MAX.">
+    <meta name="keywords"
+        content="free fire custom hud generator, ff custom hud 3 finger claw, 2 finger custom hud ff, 4 finger claw layout free fire, fire button placement ff">
+    <meta name="author" content="FF SENSI AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ffsensi.takiff.online/custom-hud-calculator.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-162NR45QD3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-162NR45QD3');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427485526135631"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header Navbar -->
+    <div class="header-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <span class="brand-title">FF SENSI AI</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Sensi Calibrator</a></li>
+                <li><a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Tool</a></li>
+                <li><a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Tool</a></li>
+                <li><a href="custom-hud-calculator.html" class="active"><i class="fa-solid fa-gamepad"></i> Custom HUD</a></li>
+                <li><a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Aim Trainer</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <header class="hero">
+            <h1 class="hero-title">
+                Custom HUD <span class="text-gradient">Blueprint Generator</span>
+            </h1>
+            <p class="hero-desc">
+                Generate exact button size percentages and screen placement coordinates for 2-Finger, 3-Finger, and 4-Finger Claw custom HUD setups.
+            </p>
+        </header>
+
+        <!-- Ad Banner Container -->
+        <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%; height:90px;"
+                 data-ad-client="ca-pub-8427485526135631"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Tool: Custom HUD Blueprint Generator -->
+        <section class="dial-interactive-wrapper" id="hud-tool">
+            <div class="dial-header">
+                <h2>Custom HUD Blueprint Engine</h2>
+                <p>Select your claw style and device screen size to generate recommended button layout specs</p>
+            </div>
+
+            <div class="selector-cards-grid">
+                <div class="selector-card">
+                    <label>CLAW PLAYSTYLE</label>
+                    <select id="clawSelect" class="clean-select">
+                        <option value="2">2-Finger Thumb Player</option>
+                        <option value="3">3-Finger Claw (Top Left Fire/Gloo)</option>
+                        <option value="4">4-Finger Pro Claw (Top Left & Right Buttons)</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>MAIN ROLE FOCUS</label>
+                    <select id="roleSelect" class="clean-select">
+                        <option value="rusher">Clash Squad Rusher (Fast Gloo)</option>
+                        <option value="sniper">BR Sniper & Long Range</option>
+                        <option value="balanced">Balanced Tournament HUD</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>ACTION GENERATE</label>
+                    <button type="button" id="calcHudBtn" class="clean-select" style="background: var(--accent-gradient); color: #ffffff; text-align: center; border: none;">
+                        Generate HUD Specs
+                    </button>
+                </div>
+            </div>
+
+            <div id="hudOutputBox" style="display: none; background: #ffffff; border-radius: 20px; padding: 24px; box-shadow: var(--shadow-inset); border: 1px solid var(--border);">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Generated Custom HUD Button Sizes</span>
+                </div>
+
+                <div class="sensi-cards-grid">
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-fire"></i> Right Fire Button</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudFireRight">44%</span></div>
+                    </div>
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-shield"></i> Gloo Wall Button</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudGloo">85%</span></div>
+                    </div>
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-crosshairs"></i> Scope Button</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudScope">65%</span></div>
+                    </div>
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-person-running"></i> Sprint Button</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudSprint">75%</span></div>
+                    </div>
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-arrows-up-down"></i> Crouch & Jump</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudCrouch">70%</span></div>
+                    </div>
+                    <div class="sensi-card">
+                        <div class="sensi-label"><i class="fa-solid fa-gun"></i> Quick Weapon Switch</div>
+                        <div class="sensi-val-row"><span class="sensi-val-num" id="hudSwitch">80%</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article -->
+        <article class="seo-panel">
+            <h2>Custom HUD Optimization for Free Fire MAX</h2>
+            <p>
+                A well-structured Custom HUD allows you to perform fast Gloo Wall drops, 360 camera rotation, and instant drag headshots without thumb collision. 3-Finger and 4-Finger Claw setups assign dedicated fingers to jump, crouch, and Gloo Wall deployment, significantly reducing action latency.
+            </p>
+        </article>
+
+    </main>
+
+    <footer class="footer-bar">
+        &copy; 2026 FF SENSI AI. All Rights Reserved. | 
+        <a href="privacy-policy.html" style="color: var(--text-secondary);">Privacy Policy</a> | 
+        <a href="terms.html" style="color: var(--text-secondary);">Terms of Service</a> | 
+        <a href="about.html" style="color: var(--text-secondary);">About Us</a> | 
+        <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

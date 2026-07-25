@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Title & Meta Tags -->
+    <title>Free Fire Drag Headshot Aim Speed Trainer (2026 Online Simulator)</title>
+    <meta name="description"
+        content="Test your thumb drag speed online with our interactive Free Fire Drag Headshot Aim Trainer. Get real-time drag velocity analysis and sensitivity calibration.">
+    <meta name="keywords"
+        content="free fire aim trainer online, ff drag speed simulator, free fire headshot drag practice, ff sensitivity tester online">
+    <meta name="author" content="FF SENSI AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ffsensi.takiff.online/drag-aim-trainer.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-162NR45QD3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-162NR45QD3');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427485526135631"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .trainer-canvas-box {
+            width: 100%;
+            height: 280px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: var(--shadow-inset);
+            border: 2px dashed rgba(255, 59, 92, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            touch-action: none;
+            overflow: hidden;
+        }
+        .trainer-target {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 59, 92, 0.15);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+        }
+        .trainer-instruction {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-top: 14px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navbar -->
+    <div class="header-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <span class="brand-title">FF SENSI AI</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Sensi Calibrator</a></li>
+                <li><a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Tool</a></li>
+                <li><a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Tool</a></li>
+                <li><a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD</a></li>
+                <li><a href="drag-aim-trainer.html" class="active"><i class="fa-solid fa-crosshairs"></i> Aim Trainer</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <header class="hero">
+            <h1 class="hero-title">
+                Drag Headshot <span class="text-gradient">Aim Trainer</span>
+            </h1>
+            <p class="hero-desc">
+                Interactive online drag velocity simulator. Drag your finger or cursor upwards in the target area below to test your drag shot speed and precision.
+            </p>
+        </header>
+
+        <!-- Ad Banner Container -->
+        <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%; height:90px;"
+                 data-ad-client="ca-pub-8427485526135631"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Tool: Drag Aim Speed Trainer -->
+        <section class="dial-interactive-wrapper" id="aim-trainer-tool">
+            <div class="dial-header">
+                <h2>Interactive Drag Speed Simulator</h2>
+                <p>Drag UPWARDS inside the box below to test your drag speed</p>
+            </div>
+
+            <!-- Canvas Interactive Box -->
+            <div class="trainer-canvas-box" id="trainerBox">
+                <div class="trainer-target" id="trainerTarget"><i class="fa-solid fa-crosshairs"></i></div>
+                <div class="trainer-instruction" id="trainerInstruction">Press & Swipe UPWARDS quickly</div>
+            </div>
+
+            <!-- Output Velocity Feedback -->
+            <div id="trainerOutputBox" style="margin-top: 24px; display: none; background: #fff5f7; border-radius: 20px; padding: 24px; text-align: center; border: 1px solid rgba(255, 59, 92, 0.2);">
+                <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Drag Speed Velocity Analysis</span>
+                <div id="trainerSpeedVal" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--accent); margin: 6px 0;">1.45 px/ms</div>
+                <p id="trainerFeedbackMsg" style="font-size: 0.9rem; color: var(--text-secondary); font-weight: 600;">
+                    Optimal Drag Speed! Recommended General Sensitivity: 194. High Red Number Accuracy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Article -->
+        <article class="seo-panel">
+            <h2>Why Drag Speed Matters for Red Numbers</h2>
+            <p>
+                In Free Fire, connecting drag shots requires matching your finger swipe speed with your in-game General sensitivity. If your finger drag is too slow, bullets lock onto the enemy chest. If your drag speed is too fast, bullets overshoot above the head.
+            </p>
+        </article>
+
+    </main>
+
+    <footer class="footer-bar">
+        &copy; 2026 FF SENSI AI. All Rights Reserved. | 
+        <a href="privacy-policy.html" style="color: var(--text-secondary);">Privacy Policy</a> | 
+        <a href="terms.html" style="color: var(--text-secondary);">Terms of Service</a> | 
+        <a href="about.html" style="color: var(--text-secondary);">About Us</a> | 
+        <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

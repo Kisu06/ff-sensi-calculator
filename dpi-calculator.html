@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Title & Meta Tags -->
+    <title>Free Fire DPI Multiplier & Touch Sampling Calculator (2026)</title>
+    <meta name="description"
+        content="Calculate optimal Developer Options DPI settings and touch sampling multipliers for Free Fire & Free Fire MAX. Safe for all Android devices.">
+    <meta name="keywords"
+        content="free fire dpi calculator, ff dpi multiplier, best dpi for free fire, developer options dpi free fire, touch sampling rate ff">
+    <meta name="author" content="FF SENSI AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ffsensi.takiff.online/dpi-calculator.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-162NR45QD3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-162NR45QD3');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427485526135631"
+        crossorigin="anonymous"></script>
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free Fire DPI Calculator",
+      "url": "https://ffsensi.takiff.online/dpi-calculator.html",
+      "operatingSystem": "Android",
+      "applicationCategory": "GameApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Developer Options DPI Multiplier and Touch Sampling Rate converter for Free Fire."
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header Navbar with Tools Dropdown -->
+    <div class="header-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <span class="brand-title">FF SENSI AI</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
+                
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger active"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                        <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                    </div>
+                </li>
+
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <header class="hero">
+            <h1 class="hero-title">
+                Free Fire <span class="text-gradient">DPI Calculator</span>
+            </h1>
+            <p class="hero-desc">
+                Calculate optimal Developer Options DPI settings and touch sampling multipliers tailored to your smartphone's stock display width and screen refresh rate.
+            </p>
+        </header>
+
+        <!-- Ad Banner Container -->
+        <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%; height:90px;"
+                 data-ad-client="ca-pub-8427485526135631"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Tool: Custom DPI Calculator -->
+        <section class="dial-interactive-wrapper" id="dpi-tool">
+            <div class="dial-header">
+                <h2>DPI Multiplier & Touch Sampling Calculator</h2>
+                <p>Convert stock display width to Developer Options DPI for maximum drag speed</p>
+            </div>
+
+            <div class="selector-cards-grid">
+                <div class="selector-card">
+                    <label>STOCK PHONE DPI (DP)</label>
+                    <select id="stockDpiInput" class="clean-select">
+                        <option value="360">360 dp (Standard HD Phone)</option>
+                        <option value="392">392 dp (FHD+ Standard)</option>
+                        <option value="411">411 dp (High Res Flagship)</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>SCREEN REFRESH RATE (HZ)</label>
+                    <select id="hzInput" class="clean-select">
+                        <option value="60">60 Hz Standard</option>
+                        <option value="90">90 Hz Smooth</option>
+                        <option value="120">120 Hz Ultra Smooth</option>
+                        <option value="144">144 Hz Gaming Display</option>
+                    </select>
+                </div>
+
+                <div class="selector-card">
+                    <label>ACTION CALCULATE</label>
+                    <button type="button" id="calcDpiBtn" class="clean-select" style="background: var(--accent-gradient); color: #ffffff; text-align: center; border: none;">
+                        Calculate Best DPI
+                    </button>
+                </div>
+            </div>
+
+            <div id="dpiOutputBox" style="display: none; background: #fff5f7; border-radius: 18px; padding: 24px; text-align: center; border: 1px solid rgba(255, 59, 92, 0.2);">
+                <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Safe Developer Options DPI</span>
+                <div id="dpiResultVal" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--accent);">480 DPI</div>
+            </div>
+        </section>
+
+        <!-- Article -->
+        <article class="seo-panel">
+            <h2>How DPI Affects Drag Shots in Free Fire</h2>
+            <p>
+                DPI (Dots Per Inch) in Android Developer Options adjusts the minimum width (dp) of your smartphone display. Increasing your DPI reduces UI scaling, allowing your finger swipe distance to translate into faster camera rotation in Free Fire.
+            </p>
+            <h2>Safe DPI Guidelines for Android Smartphones</h2>
+            <ul>
+                <li><strong>Budget 360 dp Phones:</strong> Recommended DPI range between 460 - 520.</li>
+                <li><strong>Mid-Range 392 dp Phones:</strong> Recommended DPI range between 480 - 540.</li>
+                <li><strong>Flagship 411 dp Phones:</strong> Recommended DPI range between 420 - 480.</li>
+            </ul>
+        </article>
+
+    </main>
+
+    <footer class="footer-bar">
+        &copy; 2026 FF SENSI AI. All Rights Reserved. | 
+        <a href="privacy-policy.html" style="color: var(--text-secondary);">Privacy Policy</a> | 
+        <a href="terms.html" style="color: var(--text-secondary);">Terms of Service</a> | 
+        <a href="about.html" style="color: var(--text-secondary);">About Us</a> | 
+        <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
