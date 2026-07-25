@@ -3,17 +3,25 @@
 
 RewriteEngine On
 
-# 1. Remove .html extension from URL
+# 1. 301 Redirect index.html to Root Domain (SEO Canonical Fix)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+RewriteRule ^index\.html$ https://ffsensi.takiff.online/ [R=301,L]
+
+# 2. 301 Redirect any .html URL to Clean URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\.html\ HTTP/ [NC]
+RewriteRule ^(.*)\.html$ https://ffsensi.takiff.online/$1 [R=301,L]
+
+# 3. Internal Rewrite for Clean URLs (serves .html files silently)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
-# 2. Enable Gzip Compression for Google Speed Score
+# 4. Enable Gzip Compression for Google Speed Score
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
 </IfModule>
 
-# 3. Browser Caching
+# 5. Browser Caching
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 year"
