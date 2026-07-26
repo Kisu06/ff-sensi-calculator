@@ -1,16 +1,16 @@
 /* ==========================================================================
-   FF SENSI PRO - 100% Mobile Responsive Neumorphic Soft Porcelain UI
-   Theme: Snow Porcelain White (#f4f6fa), Squircle Cards, App-Like Touch Feel
+   FF SENSI PRO - Mobile-First Luxury Neumorphic Soft Porcelain Light UI
+   100% Pixel-Perfect Ultra-Clean Mobile Responsive CSS
    ========================================================================== */
 
 :root {
     --bg-page: #f4f6fa;
     --bg-card: #ffffff;
-    --bg-input: #eef2f7;
+    --bg-input: #f0f4f9;
     --bg-input-focus: #ffffff;
     
-    --shadow-soft: 8px 12px 24px rgba(165, 175, 195, 0.25), -8px -12px 24px rgba(255, 255, 255, 0.9);
-    --shadow-inset: inset 3px 3px 8px rgba(165, 175, 195, 0.3), inset -3px -3px 8px rgba(255, 255, 255, 0.9);
+    --shadow-soft: 0 10px 30px rgba(165, 175, 195, 0.25), 0 2px 6px rgba(165, 175, 195, 0.15);
+    --shadow-inset: inset 2px 2px 6px rgba(165, 175, 195, 0.25), inset -2px -2px 6px rgba(255, 255, 255, 0.9);
     --border: #e2e8f0;
 
     /* Accents */
@@ -25,8 +25,8 @@
     --text-muted: #94a3b8;
 
     /* Fonts */
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 *, *::before, *::after {
@@ -45,24 +45,12 @@ body {
     color: var(--text-secondary);
     font-family: var(--font-body);
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: #f4f6fa;
-}
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-/* Floating Navbar Header */
+/* Header Navbar */
 .header-wrapper {
     max-width: 960px;
     margin: 16px auto 20px;
@@ -72,7 +60,7 @@ body {
 .navbar {
     background: var(--bg-card);
     border-radius: 20px;
-    padding: 12px 20px;
+    padding: 10px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,11 +76,12 @@ body {
     gap: 10px;
     text-decoration: none;
     color: var(--text-primary);
+    flex-shrink: 0;
 }
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: -0.4px;
 }
@@ -100,19 +89,20 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     list-style: none;
 }
 
 .nav-menu a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -126,7 +116,7 @@ body {
 /* Header Dropdown Menu */
 .dropdown-menu-item {
     position: relative;
-    padding: 8px 0;
+    padding: 6px 0;
 }
 
 .dropdown-trigger {
@@ -135,21 +125,18 @@ body {
 
 .dropdown-popover {
     position: absolute;
-    top: calc(100% - 2px);
-    left: 50%;
-    transform: translateX(-50%);
+    top: calc(100% + 4px);
+    right: 0;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 10px;
-    min-width: 230px;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+    border-radius: 18px;
+    padding: 8px;
+    min-width: 220px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     gap: 4px;
-    z-index: 1000;
-    
-    /* Smooth Transition & Hover Bridge */
+    z-index: 2000;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -159,10 +146,10 @@ body {
 .dropdown-popover::before {
     content: '';
     position: absolute;
-    top: -20px;
+    top: -15px;
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 15px;
     background: transparent;
 }
 
@@ -174,9 +161,9 @@ body {
 }
 
 .dropdown-popover a {
-    padding: 10px 14px;
+    padding: 10px 12px;
     border-radius: 12px;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
@@ -188,7 +175,7 @@ body {
     color: var(--accent);
 }
 
-/* Container */
+/* Main Container */
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -198,8 +185,8 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
-    margin-bottom: 28px;
-    padding: 0 8px;
+    margin-bottom: 24px;
+    padding: 0 4px;
 }
 
 .hero-title {
@@ -209,7 +196,7 @@ body {
     letter-spacing: -0.5px;
     color: var(--text-primary);
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .text-gradient {
@@ -220,7 +207,7 @@ body {
 
 .hero-desc {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     max-width: 580px;
     margin: 0 auto;
     line-height: 1.5;
@@ -229,42 +216,42 @@ body {
 /* Ad Placement Banner */
 .ad-slot {
     width: 100%;
-    margin: 16px 0 28px;
-    padding: 8px;
+    margin: 16px 0 24px;
+    padding: 6px;
     background: #ffffff;
     border: 1px dashed var(--border);
-    border-radius: 18px;
+    border-radius: 16px;
     text-align: center;
-    min-height: 80px;
+    min-height: 75px;
     box-shadow: var(--shadow-soft);
     overflow: hidden;
 }
 
-/* Interactive Calculator Wrapper */
+/* Tool Interactive Wrapper */
 .dial-interactive-wrapper {
     background: var(--bg-card);
     border-radius: 24px;
     padding: 24px 20px;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .dial-header {
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .dial-header h2 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .dial-header p {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: var(--text-secondary);
 }
 
@@ -273,13 +260,13 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .selector-card {
     background: var(--bg-input);
-    border-radius: 18px;
-    padding: 16px;
+    border-radius: 16px;
+    padding: 14px 16px;
     box-shadow: var(--shadow-inset);
     display: flex;
     flex-direction: column;
@@ -287,11 +274,11 @@ body {
 }
 
 .selector-card label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
 }
 
 .clean-select, .clean-input {
@@ -299,7 +286,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 12px 14px;
+    padding: 11px 12px;
     font-family: var(--font-body);
     font-size: 16px; /* Prevents mobile browser auto-zoom */
     font-weight: 700;
@@ -307,7 +294,7 @@ body {
     outline: none;
     transition: all 0.2s ease;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
 }
 
 .clean-select:focus, .clean-input:focus {
@@ -374,7 +361,7 @@ body {
     border-radius: 24px;
     padding: 24px 20px;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
@@ -394,7 +381,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .sensi-card {
@@ -409,11 +396,11 @@ body {
 
 .sensi-card.featured {
     background: #fff5f7;
-    border: 1px solid rgba(255, 59, 92, 0.2);
+    border: 1px solid rgba(255, 59, 92, 0.25);
 }
 
 .sensi-label {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -448,7 +435,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .badge-card {
@@ -460,7 +447,7 @@ body {
 }
 
 .badge-card .lbl {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -509,17 +496,17 @@ body {
     border-radius: 24px;
     padding: 24px 20px;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .seo-panel h2 {
     color: var(--text-primary);
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    margin: 20px 0 10px;
+    margin: 18px 0 10px;
 }
 
 .seo-panel h2:first-child {
@@ -535,7 +522,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 16px;
+    margin-top: 14px;
 }
 
 .faq-item, .faq-card {
@@ -549,7 +536,7 @@ body {
     padding: 14px 16px;
     font-weight: 700;
     color: var(--text-primary);
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -565,7 +552,7 @@ body {
 
 .faq-body {
     padding: 0 16px 14px;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: var(--text-secondary);
     display: none;
     line-height: 1.55;
@@ -579,7 +566,7 @@ body {
     transform: rotate(180deg);
 }
 
-/* Toast Notification */
+/* Toast */
 .toast-box {
     position: fixed;
     bottom: 20px;
@@ -612,99 +599,137 @@ body {
     padding: 24px 16px;
     text-align: center;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     line-height: 1.6;
 }
 
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVE MEDIA QUERIES
+   MOBILE RESPONSIVE OVERHAUL (SMARTPHONES & TABLETS)
    ========================================================================== */
 
 @media (max-width: 768px) {
     .header-wrapper {
-        padding: 0 12px;
-        margin: 12px auto 16px;
+        padding: 0 10px;
+        margin: 10px auto 14px;
     }
 
     .navbar {
-        padding: 10px 14px;
+        padding: 8px 12px;
         border-radius: 16px;
     }
 
     .brand-title {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
+    /* Horizontal Pill Navigation Bar for Mobile Header (No Wrapping / Squeezing) */
     .nav-menu {
-        gap: 10px;
+        gap: 8px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-menu a {
-        font-size: 0.8rem;
-        padding: 4px 6px;
+        font-size: 0.78rem;
+        padding: 6px 10px;
+        background: var(--bg-input);
+        border-radius: 10px;
+        box-shadow: var(--shadow-inset);
+    }
+
+    .nav-menu a.active {
+        background: #fff5f7;
+        color: var(--accent);
+    }
+
+    .dropdown-menu-item {
+        padding: 0;
+    }
+
+    .hero {
+        margin-bottom: 18px;
+        padding: 0;
     }
 
     .hero-title {
-        font-size: 1.65rem;
-        margin-bottom: 8px;
+        font-size: 1.55rem;
+        margin-bottom: 6px;
+        line-height: 1.25;
     }
 
     .hero-desc {
-        font-size: 0.88rem;
+        font-size: 0.85rem;
+        line-height: 1.45;
     }
 
-    /* 1 Column Cards on Mobile */
+    /* 1 Column Card Stack for Mobile Form Inputs */
     .selector-cards-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
-    /* 2 Columns Sensi Cards Grid on Mobile for App Feel */
+    .selector-card {
+        padding: 12px 14px;
+    }
+
+    /* Sensi Results Grid: 2 Columns for Clean App Cards */
     .sensi-cards-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 8px;
     }
 
     .sensi-card {
-        padding: 12px;
+        padding: 10px 12px;
     }
 
     .sensi-val-num {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 
     .secondary-badges-grid {
-        gap: 10px;
+        gap: 8px;
     }
 
     .badge-card {
-        padding: 12px;
+        padding: 10px 8px;
     }
 
     .badge-card .val {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .action-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 8px;
     }
 
     .dial-interactive-wrapper, .results-display-panel, .seo-panel {
-        padding: 20px 14px;
-        border-radius: 20px;
+        padding: 16px 12px;
+        border-radius: 18px;
     }
 
-    /* Popover positioning for mobile */
     .dropdown-popover {
-        left: auto;
-        right: 0;
+        position: fixed;
+        top: 60px;
+        left: 16px;
+        right: 16px;
+        min-width: auto;
         transform: none;
+    }
+
+    /* 1 Column for Key Features in SEO Article */
+    div[style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 380px) {
     .sensi-cards-grid {
-        grid-template-columns: 1fr; /* Full single column for small phones */
+        grid-template-columns: 1fr; /* Single column on tiny screens */
     }
 }
