@@ -1,6 +1,6 @@
 /* ==========================================================================
-   FF SENSI PRO - Mobile-First Luxury Neumorphic Soft Porcelain Light UI
-   100% Pixel-Perfect Ultra-Clean Mobile Responsive CSS
+   FF SENSI PRO - 100% Mobile-First Luxury Soft Porcelain Light UI
+   Fixes: Zero Horizontal Overflow, Perfect Mobile Navbar, Full Width Cards
    ========================================================================== */
 
 :root {
@@ -9,7 +9,7 @@
     --bg-input: #f0f4f9;
     --bg-input-focus: #ffffff;
     
-    --shadow-soft: 0 10px 30px rgba(165, 175, 195, 0.25), 0 2px 6px rgba(165, 175, 195, 0.15);
+    --shadow-soft: 0 8px 24px rgba(165, 175, 195, 0.2), 0 2px 6px rgba(165, 175, 195, 0.1);
     --shadow-inset: inset 2px 2px 6px rgba(165, 175, 195, 0.25), inset -2px -2px 6px rgba(255, 255, 255, 0.9);
     --border: #e2e8f0;
 
@@ -35,32 +35,44 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
-body {
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    position: relative;
     background-color: var(--bg-page);
     color: var(--text-secondary);
     font-family: var(--font-body);
     min-height: 100vh;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f4f6fa;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
 }
 
 /* Header Navbar */
 .header-wrapper {
+    width: 100%;
     max-width: 960px;
     margin: 16px auto 20px;
     padding: 0 16px;
 }
 
 .navbar {
+    width: 100%;
     background: var(--bg-card);
     border-radius: 20px;
-    padding: 10px 18px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,7 +93,7 @@ body {
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.4px;
 }
@@ -89,18 +101,18 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     list-style: none;
 }
 
 .nav-menu a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     transition: color 0.2s ease;
     white-space: nowrap;
 }
@@ -163,7 +175,7 @@ body {
 .dropdown-popover a {
     padding: 10px 12px;
     border-radius: 12px;
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
@@ -177,6 +189,7 @@ body {
 
 /* Main Container */
 .container {
+    width: 100%;
     max-width: 960px;
     margin: 0 auto;
     padding: 0 16px 50px;
@@ -184,9 +197,9 @@ body {
 
 /* Hero Section */
 .hero {
+    width: 100%;
     text-align: center;
     margin-bottom: 24px;
-    padding: 0 4px;
 }
 
 .hero-title {
@@ -229,6 +242,7 @@ body {
 
 /* Tool Interactive Wrapper */
 .dial-interactive-wrapper {
+    width: 100%;
     background: var(--bg-card);
     border-radius: 24px;
     padding: 24px 20px;
@@ -257,6 +271,7 @@ body {
 
 /* Selector Cards Grid */
 .selector-cards-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -264,6 +279,7 @@ body {
 }
 
 .selector-card {
+    width: 100%;
     background: var(--bg-input);
     border-radius: 16px;
     padding: 14px 16px;
@@ -357,6 +373,7 @@ body {
 
 /* Results Display Panel */
 .results-display-panel {
+    width: 100%;
     background: var(--bg-card);
     border-radius: 24px;
     padding: 24px 20px;
@@ -378,6 +395,7 @@ body {
 }
 
 .sensi-cards-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
@@ -385,6 +403,7 @@ body {
 }
 
 .sensi-card {
+    width: 100%;
     background: var(--bg-input);
     border-radius: 16px;
     padding: 14px;
@@ -432,6 +451,7 @@ body {
 }
 
 .secondary-badges-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -439,6 +459,7 @@ body {
 }
 
 .badge-card {
+    width: 100%;
     background: var(--bg-input);
     border-radius: 16px;
     padding: 14px;
@@ -461,12 +482,14 @@ body {
 }
 
 .action-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
 .btn-action {
+    width: 100%;
     background: var(--bg-input);
     border: 1px solid var(--border);
     color: var(--text-primary);
@@ -492,6 +515,7 @@ body {
 
 /* SEO Article & FAQs */
 .seo-panel {
+    width: 100%;
     background: var(--bg-card);
     border-radius: 24px;
     padding: 24px 20px;
@@ -519,6 +543,7 @@ body {
 }
 
 .faq-list {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -526,6 +551,7 @@ body {
 }
 
 .faq-item, .faq-card {
+    width: 100%;
     background: var(--bg-input);
     border-radius: 14px;
     overflow: hidden;
@@ -533,6 +559,7 @@ body {
 }
 
 .faq-header {
+    width: 100%;
     padding: 14px 16px;
     font-weight: 700;
     color: var(--text-primary);
@@ -595,6 +622,7 @@ body {
 
 /* Footer */
 .footer-bar {
+    width: 100%;
     border-top: 1px solid var(--border);
     padding: 24px 16px;
     text-align: center;
@@ -604,82 +632,98 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVE OVERHAUL (SMARTPHONES & TABLETS)
+   PERFECT MOBILE & TABLET RESPONSIVE OVERHAUL (ZERO OVERFLOW & FLUID FIT)
    ========================================================================== */
 
 @media (max-width: 768px) {
     .header-wrapper {
-        padding: 0 10px;
+        width: 100%;
+        padding: 0 12px;
         margin: 10px auto 14px;
     }
 
     .navbar {
-        padding: 8px 12px;
+        width: 100%;
+        padding: 10px 14px;
         border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .brand-title {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
     }
 
-    /* Horizontal Pill Navigation Bar for Mobile Header (No Wrapping / Squeezing) */
+    /* On mobile, hide clutter text links from header navbar so it NEVER wraps or breaks! */
+    .nav-menu li:not(.dropdown-menu-item) {
+        display: none !important;
+    }
+
     .nav-menu {
-        gap: 8px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 2px;
-    }
-
-    .nav-menu::-webkit-scrollbar {
-        display: none;
-    }
-
-    .nav-menu a {
-        font-size: 0.78rem;
-        padding: 6px 10px;
-        background: var(--bg-input);
-        border-radius: 10px;
-        box-shadow: var(--shadow-inset);
-    }
-
-    .nav-menu a.active {
-        background: #fff5f7;
-        color: var(--accent);
-    }
-
-    .dropdown-menu-item {
+        gap: 0;
+        margin: 0;
         padding: 0;
     }
 
+    /* Clean mobile Tools trigger button */
+    .dropdown-trigger {
+        background: #fff5f7;
+        border: 1px solid rgba(255, 59, 92, 0.3);
+        color: var(--accent) !important;
+        padding: 6px 12px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    .dropdown-popover {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        left: auto;
+        width: 220px;
+        min-width: 220px;
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 12px 40px;
+    }
+
     .hero {
-        margin-bottom: 18px;
+        width: 100%;
+        margin-bottom: 16px;
         padding: 0;
     }
 
     .hero-title {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
         margin-bottom: 6px;
         line-height: 1.25;
     }
 
     .hero-desc {
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         line-height: 1.45;
     }
 
-    /* 1 Column Card Stack for Mobile Form Inputs */
+    /* 1 Column Full Width Card Stack for Mobile */
     .selector-cards-grid {
         grid-template-columns: 1fr;
         gap: 10px;
     }
 
     .selector-card {
+        width: 100%;
         padding: 12px 14px;
     }
 
-    /* Sensi Results Grid: 2 Columns for Clean App Cards */
+    /* Sensi Cards Grid: Full Width 1 Column or 2 Columns on Mobile */
     .sensi-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 8px;
     }
 
@@ -692,6 +736,7 @@ body {
     }
 
     .secondary-badges-grid {
+        grid-template-columns: 1fr 1fr;
         gap: 8px;
     }
 
@@ -709,17 +754,9 @@ body {
     }
 
     .dial-interactive-wrapper, .results-display-panel, .seo-panel {
+        width: 100%;
         padding: 16px 12px;
         border-radius: 18px;
-    }
-
-    .dropdown-popover {
-        position: fixed;
-        top: 60px;
-        left: 16px;
-        right: 16px;
-        min-width: auto;
-        transform: none;
     }
 
     /* 1 Column for Key Features in SEO Article */
@@ -728,8 +765,8 @@ body {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .sensi-cards-grid {
-        grid-template-columns: 1fr; /* Single column on tiny screens */
+        grid-template-columns: 1fr; /* 1 column on smaller devices */
     }
 }
