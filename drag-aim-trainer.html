@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- SEO Title & Meta Tags -->
-    <title>Free Fire Drag Headshot Aim Speed Trainer (2026 Online Simulator)</title>
+    <title>Drag Aim Speed Simulator & Touch Velocity Trainer (2026)</title>
     <meta name="description"
-        content="Test your thumb drag speed online with our interactive Free Fire Drag Headshot Aim Trainer. Get real-time drag velocity analysis and sensitivity calibration.">
+        content="Test and train your drag shot swipe velocity live on your mobile touch screen to calculate optimal sensitivity.">
     <meta name="keywords"
-        content="free fire aim trainer online, ff drag speed simulator, free fire headshot drag practice, ff sensitivity tester online">
+        content="drag aim trainer free fire, touch velocity calculator, free fire headshot aim simulator, drag speed test">
     <meta name="author" content="FF SENSI AI">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ffsensi.takiff.online/drag-aim-trainer.html">
@@ -26,58 +26,17 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-162NR45QD3"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5016SZV6RD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-162NR45QD3');
+        gtag('config', 'G-5016SZV6RD');
     </script>
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427485526135631"
         crossorigin="anonymous"></script>
-
-    <style>
-        .trainer-canvas-box {
-            width: 100%;
-            height: 280px;
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: var(--shadow-inset);
-            border: 2px dashed rgba(255, 59, 92, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            cursor: pointer;
-            user-select: none;
-            touch-action: none;
-            overflow: hidden;
-        }
-        .trainer-target {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 59, 92, 0.15);
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 1.2rem;
-            pointer-events: none;
-            transition: transform 0.1s ease;
-        }
-        .trainer-instruction {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-secondary);
-            margin-top: 14px;
-            pointer-events: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -86,18 +45,53 @@
     <div class="header-wrapper">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <img src="logo.svg" alt="FF SENSI Logo" width="36" height="36" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
                 <span class="brand-title">FF SENSI AI</span>
             </a>
 
-            <ul class="nav-menu">
-                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Sensi Calibrator</a></li>
-                <li><a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Tool</a></li>
-                <li><a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Tool</a></li>
-                <li><a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD</a></li>
-                <li><a href="drag-aim-trainer.html" class="active"><i class="fa-solid fa-crosshairs"></i> Aim Trainer</a></li>
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu desktop-only">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger active"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                        <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                    </div>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Overlay & Drawer -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-head">
+                <span class="mobile-drawer-title">Navigation Menu</span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mobile-drawer-body mobile-drawer-links">
+                <a href="index.html" class="drawer-link"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                <a href="dpi-calculator.html" class="drawer-link"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                <a href="custom-hud-calculator.html" class="drawer-link"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                <a href="drag-aim-trainer.html" class="drawer-link active"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                <div class="drawer-divider"></div>
+                <a href="about.html" class="drawer-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+                <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -105,10 +99,10 @@
 
         <header class="hero">
             <h1 class="hero-title">
-                Drag Headshot <span class="text-gradient">Aim Trainer</span>
+                Drag Aim Speed <span class="text-gradient">Trainer</span>
             </h1>
             <p class="hero-desc">
-                Interactive online drag velocity simulator. Drag your finger or cursor upwards in the target area below to test your drag shot speed and precision.
+                Swipe UPWARDS in the interactive target box to measure your finger drag speed (px/ms) and get real-time sensitivity recommendations.
             </p>
         </header>
 
@@ -125,36 +119,24 @@
             </script>
         </div>
 
-        <!-- Tool: Drag Aim Speed Trainer -->
-        <section class="dial-interactive-wrapper" id="aim-trainer-tool">
+        <!-- Tool: Drag Aim Speed Simulator Pad -->
+        <section class="dial-interactive-wrapper">
             <div class="dial-header">
-                <h2>Interactive Drag Speed Simulator</h2>
-                <p>Drag UPWARDS inside the box below to test your drag speed</p>
+                <h2>Interactive Swipe Speed Simulator</h2>
+                <p id="trainerInstruction">Touch inside the box and drag UPWARDS quickly!</p>
             </div>
 
-            <!-- Canvas Interactive Box -->
-            <div class="trainer-canvas-box" id="trainerBox">
-                <div class="trainer-target" id="trainerTarget"><i class="fa-solid fa-crosshairs"></i></div>
-                <div class="trainer-instruction" id="trainerInstruction">Press & Swipe UPWARDS quickly</div>
+            <div id="trainerBox" style="width: 100%; height: 220px; background: var(--bg-input); border-radius: 20px; box-shadow: var(--shadow-inset); border: 2px dashed var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; user-select: none; touch-action: none;">
+                <i class="fa-solid fa-hand-pointer" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 8px;"></i>
+                <span style="font-weight: 800; color: var(--text-primary);">DRAG FINGER UPWARDS HERE</span>
             </div>
 
-            <!-- Output Velocity Feedback -->
-            <div id="trainerOutputBox" style="margin-top: 24px; display: none; background: #fff5f7; border-radius: 20px; padding: 24px; text-align: center; border: 1px solid rgba(255, 59, 92, 0.2);">
-                <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Drag Speed Velocity Analysis</span>
-                <div id="trainerSpeedVal" style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--accent); margin: 6px 0;">1.45 px/ms</div>
-                <p id="trainerFeedbackMsg" style="font-size: 0.9rem; color: var(--text-secondary); font-weight: 600;">
-                    Optimal Drag Speed! Recommended General Sensitivity: 194. High Red Number Accuracy.
-                </p>
+            <div id="trainerOutputBox" style="display: none; margin-top: 20px; background: #fff5f7; border-radius: 18px; padding: 20px; text-align: center; border: 1px solid rgba(255, 59, 92, 0.2);">
+                <span style="font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Measured Touch Velocity</span>
+                <div id="trainerSpeedVal" style="font-family: var(--font-heading); font-size: 2rem; font-weight: 900; color: var(--accent); margin: 4px 0;">1.42 px/ms</div>
+                <p id="trainerFeedbackMsg" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Optimal Drag Speed!</p>
             </div>
         </section>
-
-        <!-- Article -->
-        <article class="seo-panel">
-            <h2>Why Drag Speed Matters for Red Numbers</h2>
-            <p>
-                In Free Fire, connecting drag shots requires matching your finger swipe speed with your in-game General sensitivity. If your finger drag is too slow, bullets lock onto the enemy chest. If your drag speed is too fast, bullets overshoot above the head.
-            </p>
-        </article>
 
     </main>
 

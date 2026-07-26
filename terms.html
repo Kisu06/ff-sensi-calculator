@@ -3,57 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Terms of Service - FF SENSI AI</title>
-    <meta name="description" content="Terms of Service for FF SENSI AI sensitivity calculator and utility tool.">
+    <meta name="description" content="Terms of Service governing the use of FF SENSI AI website and tools.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ffsensi.takiff.online/terms.html">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#f4f6fa">
-
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5016SZV6RD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-5016SZV6RD');
+    </script>
 </head>
 
 <body>
 
+    <!-- Header Navbar -->
     <div class="header-wrapper">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <img src="logo.svg" alt="FF SENSI Logo" width="36" height="36" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
                 <span class="brand-title">FF SENSI AI</span>
             </a>
 
-            <ul class="nav-menu">
-                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu desktop-only">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                        <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                    </div>
+                </li>
                 <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
                 <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Overlay & Drawer -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-head">
+                <span class="mobile-drawer-title">Navigation Menu</span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mobile-drawer-body mobile-drawer-links">
+                <a href="index.html" class="drawer-link"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                <a href="dpi-calculator.html" class="drawer-link"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                <a href="custom-hud-calculator.html" class="drawer-link"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                <a href="drag-aim-trainer.html" class="drawer-link"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                <div class="drawer-divider"></div>
+                <a href="about.html" class="drawer-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+                <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
     </div>
 
+    <!-- Main Container -->
     <main class="container">
-        <article class="seo-panel" style="margin-top: 20px;">
-            <h1>Terms of Service</h1>
-            <p><strong>Last Updated: July 2026</strong></p>
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing and using <strong>FF SENSI AI</strong> (accessible via <code>https://ffsensi.takiff.online/</code>), you accept and agree to be bound by the terms and provisions of this agreement.</p>
+        <header class="hero">
+            <h1 class="hero-title">
+                Terms of <span class="text-gradient">Service</span>
+            </h1>
+            <p class="hero-desc">
+                Terms governing your access and use of the FF SENSI AI sensitivity calibration engine.
+            </p>
+        </header>
 
-            <h2>2. Fair Use & Intellectual Property</h2>
-            <p>FF SENSI AI provides mathematical calculations, DPI estimates, and recommended layout configurations for gaming users. All calculations represent standard native menu configurations. No third-party application modifications, cheats, hacks, or automated game script injectors are distributed or endorsed on this platform.</p>
+        <article class="seo-panel">
+            <h2>1. Acceptable Use</h2>
+            <p>
+                By using FF SENSI AI, you agree to use our sensitivity calibration calculators solely for legitimate gaming configuration purposes.
+            </p>
 
-            <h2>3. Disclaimer of Warranties</h2>
-            <p>The materials and calculations on FF SENSI AI are provided on an 'as is' basis. FF SENSI AI makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.</p>
+            <h2>2. Intellectual Property & Disclaimer</h2>
+            <p>
+                FF SENSI AI is an independent web utility and is not affiliated with, endorsed by, or sponsored by Garena Free Fire or Garena International. All game trademarks and brand names belong to their respective owners.
+            </p>
 
-            <h2>4. Contact Us</h2>
-            <p>If you have any questions regarding our Terms of Service, please reach out to us at <strong>support@takiff.online</strong>.</p>
+            <h2>3. Contact</h2>
+            <p>
+                Questions regarding Terms of Service can be sent to: <strong>support@takiff.online</strong>
+            </p>
         </article>
+
     </main>
 
     <footer class="footer-bar">
@@ -64,6 +119,7 @@
         <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
     </footer>
 
+    <script src="js/app.js"></script>
 </body>
 
 </html>

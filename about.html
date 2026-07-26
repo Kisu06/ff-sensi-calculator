@@ -3,54 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>About Us - FF SENSI AI</title>
-    <meta name="description" content="Learn about FF SENSI AI sensitivity calculator mission, technology, and device tuning engine.">
+    <meta name="description" content="Learn about FF SENSI AI - The precision Free Fire headshot sensitivity calibration platform.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ffsensi.takiff.online/about.html">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#f4f6fa">
-
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5016SZV6RD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-5016SZV6RD');
+    </script>
 </head>
 
 <body>
 
+    <!-- Header Navbar -->
     <div class="header-wrapper">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <img src="logo.svg" alt="FF SENSI Logo" width="36" height="36" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
                 <span class="brand-title">FF SENSI AI</span>
             </a>
 
-            <ul class="nav-menu">
-                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu desktop-only">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="custom-hud-calculator.html"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                        <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                    </div>
+                </li>
                 <li><a href="about.html" class="active"><i class="fa-solid fa-circle-info"></i> About</a></li>
                 <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Overlay & Drawer -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-head">
+                <span class="mobile-drawer-title">Navigation Menu</span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mobile-drawer-body mobile-drawer-links">
+                <a href="index.html" class="drawer-link"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                <a href="dpi-calculator.html" class="drawer-link"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                <a href="custom-hud-calculator.html" class="drawer-link"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                <a href="drag-aim-trainer.html" class="drawer-link"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                <div class="drawer-divider"></div>
+                <a href="about.html" class="drawer-link active"><i class="fa-solid fa-circle-info"></i> About Us</a>
+                <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
     </div>
 
+    <!-- Main Container -->
     <main class="container">
-        <article class="seo-panel" style="margin-top: 20px;">
-            <h1>About FF SENSI AI</h1>
-            <p>Welcome to <strong>FF SENSI AI</strong>, a dedicated online utility tool engineered to provide gamers with mathematically calibrated sensitivity values, recommended DPI multipliers, and custom HUD fire button placement ratios for Free Fire and Free Fire MAX.</p>
 
+        <header class="hero">
+            <h1 class="hero-title">
+                About <span class="text-gradient">FF SENSI AI</span>
+            </h1>
+            <p class="hero-desc">
+                Engineering mathematical sensitivity algorithms and display calibration utilities for Free Fire MAX players worldwide.
+            </p>
+        </header>
+
+        <article class="seo-panel">
             <h2>Our Mission</h2>
-            <p>Our goal is to help mobile gamers achieve optimal touch responsiveness across all smartphone models—ranging from budget 2GB RAM devices up to flagship 120Hz/144Hz displays. We eliminate trial-and-error by computing parameters based on screen hardware touch sampling rates.</p>
+            <p>
+                FF SENSI AI was created to solve a universal challenge faced by millions of mobile esports players: finding the perfect in-game sensitivity sliders and Developer Options DPI without resorting to tedious, time-consuming trial-and-error.
+            </p>
 
-            <h2>100% Policy Safe & Transparent</h2>
-            <p>FF SENSI AI operates strictly within official gaming guidelines. All recommendations refer solely to native in-game settings menus and Android Developer Options DPI configurations.</p>
+            <h2>Scientific Calibration Approach</h2>
+            <p>
+                Unlike generic gaming blogs that provide static, fixed numbers, our engine evaluates actual display hardware specifications—including touch sampling rates, screen refresh rates (Hz), and RAM capacities—to generate customized settings for every phone model.
+            </p>
 
-            <h2>Contact Us</h2>
-            <p>For inquiries, support, or partnership opportunities, email us at <strong>support@takiff.online</strong>.</p>
+            <h2>100% Policy Safe & Fair Play Compliant</h2>
+            <p>
+                FF SENSI AI is strictly a web-based educational calculator. We do NOT provide, promote, or distribute any game hacks, auto-aim scripts, or modified APKs. All generated values are standard menu settings native to Free Fire MAX and adhere 100% to Garena Fair Play guidelines.
+            </p>
         </article>
+
     </main>
 
     <footer class="footer-bar">
@@ -61,6 +119,7 @@
         <a href="contact.html" style="color: var(--text-secondary);">Contact Us</a>
     </footer>
 
+    <script src="js/app.js"></script>
 </body>
 
 </html>

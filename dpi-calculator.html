@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- SEO Title & Meta Tags -->
     <title>Free Fire DPI Multiplier & Touch Sampling Calculator (2026)</title>
@@ -59,17 +59,17 @@
 
 <body>
 
-    <!-- Header Navbar with Tools Dropdown -->
+    <!-- Header Navbar -->
     <div class="header-wrapper">
         <nav class="navbar">
             <a href="index.html" class="brand">
-                <img src="logo.svg" alt="FF SENSI Logo" width="40" height="40" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
+                <img src="logo.svg" alt="FF SENSI Logo" width="36" height="36" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);">
                 <span class="brand-title">FF SENSI AI</span>
             </a>
 
-            <ul class="nav-menu">
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu desktop-only">
                 <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
-                
                 <li class="dropdown-menu-item">
                     <a class="dropdown-trigger active"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <div class="dropdown-popover">
@@ -80,11 +80,36 @@
                         <a href="drag-aim-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
                     </div>
                 </li>
-
                 <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
                 <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Overlay & Drawer -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-head">
+                <span class="mobile-drawer-title">Navigation Menu</span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mobile-drawer-body mobile-drawer-links">
+                <a href="index.html" class="drawer-link"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
+                <a href="dpi-calculator.html" class="drawer-link active"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                <a href="custom-hud-calculator.html" class="drawer-link"><i class="fa-solid fa-gamepad"></i> Custom HUD Blueprint</a>
+                <a href="drag-aim-trainer.html" class="drawer-link"><i class="fa-solid fa-crosshairs"></i> Drag Aim Speed Trainer</a>
+                <div class="drawer-divider"></div>
+                <a href="about.html" class="drawer-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+                <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
     </div>
 
     <!-- Main Container -->
