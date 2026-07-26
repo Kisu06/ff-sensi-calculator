@@ -17,6 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
         "Infinix GT 10 Pro", "Infinix Zero 30", "Tecno Pova 5 Pro", "ASUS ROG Phone 7"
     ];
 
+    // Mobile Navigation Drawer Controls
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.add('open');
+        if (mobileOverlay) mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.remove('open');
+        if (mobileOverlay) mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openDrawer();
+        });
+    }
+
+    if (closeDrawerBtn) {
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+    }
+
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeDrawer);
+    }
+
     // Elements Tool 1: Sensi Calibrator
     const platformSelect = document.getElementById('platformSelect');
     const deviceInput = document.getElementById('deviceInput');
