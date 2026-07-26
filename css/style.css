@@ -1,6 +1,6 @@
 /* ==========================================================================
-   FF SENSI PRO - Mobile-First Premium Soft Porcelain UI
-   100% Pixel-Perfect | Hamburger Drawer Menu | Zero Overflow
+   FF SENSI PRO - 100% Mobile-First Premium Soft Porcelain Light UI
+   Fixes: Brand Title No-Wrap, Hidden Mobile Drawer by Default, Perfect Mobile Layout
    ========================================================================== */
 
 :root {
@@ -31,7 +31,7 @@ html {
 body {
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     background: var(--bg-page);
     color: var(--text-secondary);
     font-family: var(--font-body);
@@ -68,13 +68,16 @@ body {
     text-decoration: none;
     color: var(--text-primary);
     flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.4px;
+    white-space: nowrap !important;
+    display: inline-block;
 }
 
 /* Desktop Nav Menu */
@@ -172,14 +175,14 @@ body {
     transition: all 0.2s ease;
 }
 
-/* ============ MOBILE OVERLAY ============ */
+/* ============ MOBILE OVERLAY & DRAWER ============ */
 .mobile-overlay {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(15, 23, 42, 0.5);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -189,31 +192,34 @@ body {
 }
 
 .mobile-overlay.open {
-    display: block;
+    display: block !important;
     opacity: 1;
 }
 
-/* ============ MOBILE SLIDE DRAWER ============ */
+/* Mobile Drawer - Hidden completely by default */
 .mobile-drawer {
+    display: none; /* Crucial: Prevents raw un-styled render on mobile */
     position: fixed;
     top: 0;
-    right: -280px;
+    right: 0;
     width: 280px;
-    height: 100%;
+    max-width: 85vw;
+    height: 100vh;
     background: var(--bg-card);
     z-index: 9999;
     box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
     flex-direction: column;
     overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-drawer.open {
-    right: 0;
+    display: flex !important;
+    transform: translateX(0) !important;
 }
 
-.mobile-drawer-head {
+.mobile-drawer-head, .mobile-drawer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -228,7 +234,7 @@ body {
     color: var(--text-primary);
 }
 
-.mobile-drawer-close {
+.mobile-drawer-close, .close-drawer-btn {
     background: var(--bg-input);
     border: none;
     width: 36px;
@@ -243,19 +249,19 @@ body {
     transition: all 0.2s ease;
 }
 
-.mobile-drawer-close:hover {
+.mobile-drawer-close:hover, .close-drawer-btn:hover {
     background: #fff5f7;
     color: var(--accent);
 }
 
-.mobile-drawer-body {
+.mobile-drawer-body, .mobile-drawer-links {
     display: flex;
     flex-direction: column;
     padding: 12px 16px;
-    gap: 4px;
+    gap: 6px;
 }
 
-.drawer-link {
+.drawer-link, .mobile-drawer-links a {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -268,15 +274,15 @@ body {
     transition: all 0.2s ease;
 }
 
-.drawer-link i {
+.drawer-link i, .mobile-drawer-links i {
     color: var(--accent);
     width: 20px;
     text-align: center;
     font-size: 1rem;
 }
 
-.drawer-link:hover,
-.drawer-link.active {
+.drawer-link:hover, .drawer-link.active,
+.mobile-drawer-links a:hover, .mobile-drawer-links a.active {
     background: #fff5f7;
     color: var(--accent);
 }
@@ -671,28 +677,28 @@ body {
 }
 
 /* ============ FEATURES GRID ============ */
-.features-grid {
+.features-grid, .features-responsive-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
     margin-top: 14px;
 }
 
-.feature-box {
+.feature-box, .feature-card-box {
     background: var(--bg-input);
     padding: 16px;
     border-radius: 16px;
     box-shadow: var(--shadow-inset);
 }
 
-.feature-box h4 {
+.feature-box h4, .feature-card-box h4 {
     font-size: 0.88rem;
     font-weight: 800;
     color: var(--accent);
     margin-bottom: 4px;
 }
 
-.feature-box p {
+.feature-box p, .feature-card-box p {
     font-size: 0.82rem;
     color: var(--text-secondary);
     margin: 0;
@@ -785,13 +791,13 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVE (PERFECT 320px - 768px)
+   PERFECT MOBILE & TABLET BREAKPOINTS
    ========================================================================== */
 
 @media (max-width: 768px) {
-    /* Hide desktop nav, show hamburger */
+    /* Hide desktop nav links, show mobile hamburger icon */
     .desktop-only { display: none !important; }
-    .mobile-menu-btn { display: flex !important; }
+    .mobile-menu-btn, .mobile-hamburger-btn { display: flex !important; }
 
     .header-wrapper {
         padding: 0 12px;
@@ -803,7 +809,10 @@ body {
         border-radius: 16px;
     }
 
-    .brand-title { font-size: 1.05rem; }
+    .brand-title {
+        font-size: 1.05rem;
+        white-space: nowrap !important;
+    }
 
     .container {
         padding: 0 12px 40px;
@@ -871,12 +880,12 @@ body {
     }
 
     /* Features Grid 1 Column */
-    .features-grid {
+    .features-grid, .features-responsive-grid {
         grid-template-columns: 1fr;
         gap: 10px;
     }
 
-    .feature-box { padding: 14px; }
+    .feature-box, .feature-card-box { padding: 14px; }
 
     /* SEO Panel */
     .seo-panel h2 { font-size: 1.15rem; }

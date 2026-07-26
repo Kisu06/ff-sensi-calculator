@@ -123,7 +123,7 @@
                 <span class="brand-title">FF SENSI AI</span>
             </a>
 
-            <!-- Desktop Nav Menu (Hidden on Mobile) -->
+            <!-- Desktop Nav Menu -->
             <ul class="nav-menu desktop-only">
                 <li><a href="index.html" class="active"><i class="fa-solid fa-calculator"></i> Calibrator</a></li>
                 <li class="dropdown-menu-item">
@@ -140,22 +140,22 @@
                 <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
 
-            <!-- Mobile Hamburger Button (Hidden on Desktop) -->
-            <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </nav>
 
-        <!-- Mobile Slide Drawer (Hidden by default) -->
+        <!-- Mobile Overlay & Drawer (Completely Hidden by Default) -->
         <div class="mobile-overlay" id="mobileOverlay"></div>
         <div class="mobile-drawer" id="mobileDrawer">
             <div class="mobile-drawer-head">
-                <span class="mobile-drawer-title">Menu</span>
-                <button type="button" class="mobile-drawer-close" id="closeDrawerBtn" aria-label="Close Menu">
+                <span class="mobile-drawer-title">Navigation Menu</span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="mobile-drawer-body">
+            <div class="mobile-drawer-body mobile-drawer-links">
                 <a href="index.html" class="drawer-link active"><i class="fa-solid fa-sliders"></i> Sensi Calibrator</a>
                 <a href="dpi-calculator.html" class="drawer-link"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
                 <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
@@ -177,11 +177,11 @@
                 FF SENSI - Free Fire <span class="text-gradient">Headshot Engine</span>
             </h1>
             <p class="hero-desc">
-                Calculate precision in-game sensitivity sliders, DPI multipliers, and custom HUD fire button sizes for your phone model.
+                Calculate precision in-game sensitivity sliders, Developer Options DPI multipliers, and custom HUD fire button sizes engineered for your phone model.
             </p>
         </header>
 
-        <!-- Top Ad Slot -->
+        <!-- Top Ad Slot Container -->
         <div class="ad-slot">
             <ins class="adsbygoogle"
                  style="display:block; width:100%; height:90px;"
@@ -202,6 +202,7 @@
             </div>
 
             <div class="selector-cards-grid">
+                <!-- Field 1: Platform -->
                 <div class="selector-card">
                     <label>1. DEVICE PLATFORM</label>
                     <select id="platformSelect" class="clean-select">
@@ -211,12 +212,14 @@
                     </select>
                 </div>
 
+                <!-- Field 2: Device Model -->
                 <div class="selector-card" style="position: relative;">
                     <label>2. DEVICE MODEL</label>
                     <input type="text" id="deviceInput" class="clean-input" placeholder="e.g. Redmi Note 13 Pro, Galaxy S24..." autocomplete="off">
                     <div id="suggestionsBox" class="suggestions-box"></div>
                 </div>
 
+                <!-- Field 3: RAM & Playstyle -->
                 <div class="selector-card">
                     <label>3. PREFERRED PLAYSTYLE</label>
                     <select id="ramPlaystyleSelect" class="clean-select">
@@ -246,37 +249,49 @@
             </div>
 
             <div id="resultsGrid" style="display: none; flex-direction: column;">
+                
                 <div class="sensi-cards-grid">
+                    <!-- General -->
                     <div class="sensi-card featured">
                         <div class="sensi-label"><i class="fa-solid fa-fire"></i> General</div>
                         <div class="sensi-val-row">
                             <span class="sensi-val-num" id="valGeneral">194</span>
                         </div>
                     </div>
+
+                    <!-- Red Dot -->
                     <div class="sensi-card">
                         <div class="sensi-label"><i class="fa-solid fa-circle-dot"></i> Red Dot</div>
                         <div class="sensi-val-row">
                             <span class="sensi-val-num" id="valRedDot">188</span>
                         </div>
                     </div>
+
+                    <!-- 2x Scope -->
                     <div class="sensi-card">
                         <div class="sensi-label"><i class="fa-solid fa-magnifying-glass"></i> 2x Scope</div>
                         <div class="sensi-val-row">
                             <span class="sensi-val-num" id="valScope2x">178</span>
                         </div>
                     </div>
+
+                    <!-- 4x Scope -->
                     <div class="sensi-card">
                         <div class="sensi-label"><i class="fa-solid fa-eye"></i> 4x Scope</div>
                         <div class="sensi-val-row">
                             <span class="sensi-val-num" id="valScope4x">168</span>
                         </div>
                     </div>
+
+                    <!-- Sniper Scope -->
                     <div class="sensi-card">
                         <div class="sensi-label"><i class="fa-solid fa-crosshairs"></i> Sniper Scope</div>
                         <div class="sensi-val-row">
                             <span class="sensi-val-num" id="valSniper">125</span>
                         </div>
                     </div>
+
+                    <!-- Free Look -->
                     <div class="sensi-card">
                         <div class="sensi-label"><i class="fa-solid fa-arrows-spin"></i> Free Look</div>
                         <div class="sensi-val-row">
@@ -304,10 +319,11 @@
                         <i class="fa-brands fa-whatsapp"></i> Share Squad
                     </button>
                 </div>
+
             </div>
         </section>
 
-        <!-- Table of Contents -->
+        <!-- Table of Contents Section -->
         <section class="dial-interactive-wrapper toc-section">
             <div class="toc-title">
                 <i class="fa-solid fa-list-ul"></i> Table of Contents
@@ -321,7 +337,7 @@
             </nav>
         </section>
 
-        <!-- Mid Ad Slot -->
+        <!-- Mid Ad Banner -->
         <div class="ad-slot">
             <ins class="adsbygoogle"
                  style="display:block; width:100%; height:90px;"
@@ -334,7 +350,7 @@
             </script>
         </div>
 
-        <!-- SEO Article -->
+        <!-- Comprehensive SEO Article -->
         <article class="seo-panel" id="guide">
             
             <section id="about-engine">
@@ -373,7 +389,7 @@
                 <h2>Core Performance Features & Hardware Profiling</h2>
                 <div class="features-grid">
                     <div class="feature-box">
-                        <h4>AI Hardware Profiling</h4>
+                        <h4 style="color: var(--accent);">AI Hardware Profiling</h4>
                         <p>Computes recommended values based on exact phone brand, model, and display touch response rates.</p>
                     </div>
                     <div class="feature-box">
@@ -477,7 +493,7 @@
 
     </main>
 
-    <!-- Toast Notification -->
+    <!-- Toast Notification (Zero Emojis) -->
     <div id="toast" class="toast-box">
         <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Sensitivity config copied to clipboard</span>
     </div>
