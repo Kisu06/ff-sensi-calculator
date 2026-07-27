@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnShare) {
         btnShare.addEventListener('click', () => {
             const message = encodeURIComponent(
-                `Free Fire Headshot Sensitivity Generator: https://ffsensi.takiff.online/`
+                `FF Headshot Sensitivity Generator: https://ffsensi.takiff.online/`
             );
             window.open(`https://api.whatsapp.com/send?text=${message}`, '_blank');
         });

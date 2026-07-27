@@ -1,21 +1,17 @@
 {
-  "name": "FF SENSI - Free Fire Sensitivity Calculator 2026",
-  "short_name": "FF Sensi",
-  "description": "AI Powered Free Fire Headshot Sensitivity & DPI Generator for OB54 Update",
+  "name": "FF SENSI - FF Sensitivity Calculator 2026",
+  "short_name": "FF SENSI",
+  "description": "AI Powered FF Headshot Sensitivity & DPI Generator",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#07090e",
-  "theme_color": "#ff3355",
+  "background_color": "#f4f6fa",
+  "theme_color": "#f4f6fa",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "favicon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
