@@ -3,13 +3,16 @@
 
 RewriteEngine On
 
+# Custom 404 Error Document
+ErrorDocument 404 /404.html
+
 # 1. 301 Redirect index.html to Root Domain (SEO Canonical Fix)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
-RewriteRule ^index\.html$ https://ffsensi.takiff.online/ [R=301,L]
+RewriteRule ^index\.html$ https://viralsensi.takiff.online/ [R=301,L]
 
 # 2. 301 Redirect any .html URL to Clean URL
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)\.html\ HTTP/ [NC]
-RewriteRule ^(.*)\.html$ https://ffsensi.takiff.online/$1 [R=301,L]
+RewriteRule ^(.*)\.html$ https://viralsensi.takiff.online/$1 [R=301,L]
 
 # 3. Internal Rewrite for Clean URLs (serves .html files silently)
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -1,7 +1,7 @@
 {
-  "name": "FF SENSI - FF Sensitivity Calculator 2026",
-  "short_name": "FF SENSI",
-  "description": "AI Powered FF Headshot Sensitivity & DPI Generator",
+  "name": "Viral Sensi - Free Fire Sensitivity Generator",
+  "short_name": "Viral Sensi",
+  "description": "Free Fire Sensitivity Generator & DPI Settings Tuner",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f6fa",

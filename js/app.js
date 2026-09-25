@@ -1,22 +1,9 @@
 /**
- * FREE FIRE SENSITIVITY CALCULATOR ENGINE 2026
- * Clean, High Precision & AdSense Policy Safe
- * Custom Logo & Favicon Integration / Zero Emojis
+ * VIRAL SENSI - FREE FIRE SENSITIVITY GENERATOR ENGINE 2026
+ * Clean, High Precision & Policy Safe
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Autocomplete database
-    const deviceDatabase = [
-        "Redmi Note 12", "Redmi Note 13 Pro", "Redmi Note 11", "Redmi 12 5G", "Redmi Note 10 Pro",
-        "Poco X5 Pro", "Poco X6 Pro 5G", "Poco M6 Pro", "Poco F5", "Poco C55",
-        "Samsung Galaxy S23 Ultra", "Samsung Galaxy S24 Ultra", "Samsung M34 5G", "Samsung A54 5G", "Samsung A14",
-        "Realme 11 Pro+", "Realme 12 Pro", "Realme C55", "Realme Narzo 60", "Realme 9 Pro",
-        "Vivo V29 5G", "Vivo T2x 5G", "Vivo Y200", "Vivo V30 Pro", "iQOO Neo 7", "iQOO Z7 Pro",
-        "OnePlus Nord CE 3", "OnePlus 11R", "OnePlus 12", "OnePlus Nord 3",
-        "iPhone 13", "iPhone 14 Pro Max", "iPhone 15 Pro Max", "iPhone 12", "iPhone 11",
-        "Infinix GT 10 Pro", "Infinix Zero 30", "Tecno Pova 5 Pro", "ASUS ROG Phone 7"
-    ];
-
     // Mobile Navigation Drawer Controls
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const closeDrawerBtn = document.getElementById('closeDrawerBtn');
@@ -26,13 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function openDrawer() {
         if (mobileDrawer) mobileDrawer.classList.add('open');
         if (mobileOverlay) mobileOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
     }
 
     function closeDrawer() {
         if (mobileDrawer) mobileDrawer.classList.remove('open');
         if (mobileOverlay) mobileOverlay.classList.remove('open');
-        document.body.style.overflow = '';
     }
 
     if (mobileMenuBtn) {
@@ -50,15 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileOverlay.addEventListener('click', closeDrawer);
     }
 
-    // Elements Tool 1: Sensi Calibrator
-    const platformSelect = document.getElementById('platformSelect');
-    const deviceInput = document.getElementById('deviceInput');
-    const suggestionsBox = document.getElementById('suggestionsBox');
-    const ramPlaystyleSelect = document.getElementById('ramPlaystyleSelect');
-    const generateBtn = document.getElementById('generateBtn');
-
-    const resultsPlaceholder = document.getElementById('resultsPlaceholder');
-    const resultsGrid = document.getElementById('resultsGrid');
+    // Elements: Sensitivity Profile Builder
+    const gameVersionSelect = document.getElementById('gameVersionSelect');
+    const deviceClassSelect = document.getElementById('deviceClassSelect');
+    const ramSelect = document.getElementById('ramSelect');
+    const dpiSelect = document.getElementById('dpiSelect');
+    const refreshRateSelect = document.getElementById('refreshRateSelect');
+    const playStyleSelect = document.getElementById('playStyleSelect');
+    const aimComfortSlider = document.getElementById('aimComfortSlider');
+    const comfortBadge = document.getElementById('comfortBadge');
+    const playstyleBadge = document.getElementById('playstyleBadge');
 
     const valGeneral = document.getElementById('valGeneral');
     const valRedDot = document.getElementById('valRedDot');
@@ -71,9 +57,274 @@ document.addEventListener('DOMContentLoaded', () => {
     const valFireButton = document.getElementById('valFireButton');
 
     const btnCopy = document.getElementById('btnCopy');
+    const btnReset = document.getElementById('btnReset');
     const btnShare = document.getElementById('btnShare');
     const toast = document.getElementById('toast');
     const toastMsg = document.getElementById('toastMsg');
+
+    // Comfort Labels Mapping
+    const comfortLabels = {
+        '1': 'ULTRA STABLE',
+        '2': 'STABLE',
+        '3': 'BALANCED',
+        '4': 'FAST',
+        '5': 'ULTRA FAST'
+    };
+
+    // Playstyle Badge Text Mapping
+    const playstyleNames = {
+        'balanced': 'BALANCED',
+        'drag': 'DRAG HEADSHOT',
+        'gloo': 'FAST MOVEMENT',
+        'spray': 'SPRAY CONTROL'
+    };
+
+    // Calculate Sensitivity Profile Function
+    function calculateProfile() {
+        if (!valGeneral) return; // Not on index.html
+
+        const gameVer = gameVersionSelect ? gameVersionSelect.value : '200';
+        const devClass = deviceClassSelect ? deviceClassSelect.value : 'mid';
+        const ram = ramSelect ? ramSelect.value : '4';
+        const dpiRange = dpiSelect ? dpiSelect.value : 'medium';
+        const hz = refreshRateSelect ? refreshRateSelect.value : '60';
+        const style = playStyleSelect ? playStyleSelect.value : 'balanced';
+        const comfort = aimComfortSlider ? parseInt(aimComfortSlider.value) : 3;
+
+        // Baseline (exact values matching reference screenshot when defaults are chosen:
+        // 200-point, mid range, 4GB RAM, medium DPI, 60Hz, balanced aim, comfort 3)
+        let baseGen = 160;
+        let baseRed = 158;
+        let base2x = 150;
+        let base4x = 138;
+        let baseSnp = 118;
+        let baseFrl = 145;
+
+        let recDpi = '480 DPI';
+        let fireBtn = 44;
+
+        // 1. Device Class Adjustments
+        if (devClass === 'budget') {
+            baseGen += 8;
+            baseRed += 7;
+            base2x += 5;
+            base4x += 4;
+            baseSnp += 3;
+            baseFrl += 5;
+            fireBtn = 46;
+        } else if (devClass === 'flagship') {
+            baseGen -= 6;
+            baseRed -= 5;
+            base2x -= 4;
+            base4x -= 4;
+            baseSnp -= 2;
+            baseFrl -= 4;
+            fireBtn = 42;
+        } else if (devClass === 'iphone') {
+            baseGen -= 4;
+            baseRed -= 3;
+            base2x -= 3;
+            base4x -= 3;
+            baseSnp -= 2;
+            baseFrl -= 3;
+            recDpi = 'Default (iOS)';
+            fireBtn = 42;
+        }
+
+        // 2. RAM Adjustments
+        if (ram === '2') {
+            baseGen += 6;
+            baseRed += 5;
+        } else if (ram === '3') {
+            baseGen += 3;
+            baseRed += 2;
+        } else if (ram === '6') {
+            baseGen -= 2;
+            baseRed -= 2;
+        } else if (ram === '8') {
+            baseGen -= 4;
+            baseRed -= 3;
+        } else if (ram === '12') {
+            baseGen -= 6;
+            baseRed -= 5;
+        }
+
+        // 3. DPI Range Adjustments
+        if (devClass !== 'iphone') {
+            if (dpiRange === 'default') {
+                baseGen += 4;
+                baseRed += 3;
+                recDpi = 'Stock (392 DPI)';
+            } else if (dpiRange === 'medium') {
+                recDpi = '480 DPI';
+            } else if (dpiRange === 'high') {
+                baseGen -= 5;
+                baseRed -= 4;
+                recDpi = '540 DPI';
+            }
+        }
+
+        // 4. Screen Refresh Rate Adjustments
+        if (hz === '90') {
+            baseGen -= 2;
+            baseRed -= 2;
+        } else if (hz === '120') {
+            baseGen -= 5;
+            baseRed -= 4;
+            base2x -= 3;
+            base4x -= 3;
+        } else if (hz === '144') {
+            baseGen -= 8;
+            baseRed -= 6;
+            base2x -= 4;
+            base4x -= 4;
+        }
+
+        // 5. Play Style Adjustments
+        if (style === 'drag') {
+            baseGen += 6;
+            baseRed += 7;
+            fireBtn = Math.max(38, fireBtn - 3);
+        } else if (style === 'gloo') {
+            baseGen += 8;
+            baseFrl += 12;
+            fireBtn = fireBtn - 1;
+        } else if (style === 'spray') {
+            baseGen -= 6;
+            baseRed -= 5;
+            base2x -= 6;
+            base4x -= 6;
+            fireBtn = fireBtn + 3;
+        }
+
+        // 6. Aim Comfort Slider Adjustments (1: -8, 2: -4, 3: 0, 4: +4, 5: +8)
+        const comfortOffset = (comfort - 3) * 4;
+        baseGen += comfortOffset;
+        baseRed += comfortOffset;
+        base2x += Math.round(comfortOffset * 0.8);
+        base4x += Math.round(comfortOffset * 0.7);
+        baseSnp += Math.round(comfortOffset * 0.5);
+        baseFrl += comfortOffset;
+
+        // 7. Game Version Scale (200-point vs 100-point legacy)
+        if (gameVer === '100') {
+            baseGen = Math.round(baseGen / 2);
+            baseRed = Math.round(baseRed / 2);
+            base2x = Math.round(base2x / 2);
+            base4x = Math.round(base4x / 2);
+            baseSnp = Math.round(baseSnp / 2);
+            baseFrl = Math.round(baseFrl / 2);
+
+            baseGen = Math.min(100, Math.max(10, baseGen));
+            baseRed = Math.min(100, Math.max(10, baseRed));
+            base2x = Math.min(100, Math.max(10, base2x));
+            base4x = Math.min(100, Math.max(10, base4x));
+            baseSnp = Math.min(100, Math.max(10, baseSnp));
+            baseFrl = Math.min(100, Math.max(10, baseFrl));
+        } else {
+            baseGen = Math.min(200, Math.max(20, baseGen));
+            baseRed = Math.min(200, Math.max(20, baseRed));
+            base2x = Math.min(200, Math.max(20, base2x));
+            base4x = Math.min(200, Math.max(20, base4x));
+            baseSnp = Math.min(200, Math.max(20, baseSnp));
+            baseFrl = Math.min(200, Math.max(20, baseFrl));
+        }
+
+        // Render Sensitivity Numbers
+        valGeneral.textContent = baseGen;
+        valRedDot.textContent = baseRed;
+        valScope2x.textContent = base2x;
+        valScope4x.textContent = base4x;
+        valSniper.textContent = baseSnp;
+        valFreeLook.textContent = baseFrl;
+
+        // Render Secondary Badges
+        if (valDpi) valDpi.textContent = recDpi;
+        if (valFireButton) valFireButton.textContent = `${fireBtn}%`;
+
+        // Update Badges
+        if (comfortBadge) {
+            comfortBadge.textContent = comfortLabels[comfort.toString()] || 'BALANCED';
+        }
+        if (playstyleBadge) {
+            playstyleBadge.textContent = playstyleNames[style] || 'BALANCED AIM';
+        }
+    }
+
+    // Attach Event Listeners to all 6 selectors and slider for instant reactive updates
+    const inputs = [gameVersionSelect, deviceClassSelect, ramSelect, dpiSelect, refreshRateSelect, playStyleSelect];
+    inputs.forEach(input => {
+        if (input) {
+            input.addEventListener('change', calculateProfile);
+        }
+    });
+
+    if (aimComfortSlider) {
+        aimComfortSlider.addEventListener('input', calculateProfile);
+    }
+
+    // Reset Button Handler
+    if (btnReset) {
+        btnReset.addEventListener('click', () => {
+            if (gameVersionSelect) gameVersionSelect.value = '200';
+            if (deviceClassSelect) deviceClassSelect.value = 'mid';
+            if (ramSelect) ramSelect.value = '4';
+            if (dpiSelect) dpiSelect.value = 'medium';
+            if (refreshRateSelect) refreshRateSelect.value = '60';
+            if (playStyleSelect) playStyleSelect.value = 'balanced';
+            if (aimComfortSlider) aimComfortSlider.value = '3';
+
+            calculateProfile();
+            showToast("Reset to default profile");
+        });
+    }
+
+    // Initial calculation on load
+    if (valGeneral) {
+        calculateProfile();
+    }
+
+    // Copy to Clipboard
+    if (btnCopy) {
+        btnCopy.addEventListener('click', () => {
+            const verText = gameVersionSelect ? gameVersionSelect.options[gameVersionSelect.selectedIndex].text : '200-point';
+            const devText = deviceClassSelect ? deviceClassSelect.options[deviceClassSelect.selectedIndex].text : 'Mid range phone';
+            const ramText = ramSelect ? ramSelect.value + ' GB' : '4 GB';
+            const hzText = refreshRateSelect ? refreshRateSelect.value + ' Hz' : '60 Hz';
+
+            const sensiText = `VIRAL SENSI - FREE FIRE SENSITIVITY\n` +
+                `Menu Scale: ${verText}\n` +
+                `Device: ${devText} (${ramText} RAM, ${hzText})\n` +
+                `-------------------------\n` +
+                `General: ${valGeneral.textContent}\n` +
+                `Red Dot: ${valRedDot.textContent}\n` +
+                `2x Scope: ${valScope2x.textContent}\n` +
+                `4x Scope: ${valScope4x.textContent}\n` +
+                `Sniper Scope: ${valSniper.textContent}\n` +
+                `Free Camera: ${valFreeLook.textContent}\n` +
+                `Fire Button Size: ${valFireButton ? valFireButton.textContent : '44%'}\n` +
+                `Recommended DPI: ${valDpi ? valDpi.textContent : '480 DPI'}\n` +
+                `-------------------------\n` +
+                `How to apply: Open Free Fire Settings > Sensitivity and manually adjust each slider.\n` +
+                `Generated via: https://viralsensi.takiff.online/`;
+
+            navigator.clipboard.writeText(sensiText).then(() => {
+                showToast("Values copied! Manually adjust sliders in game settings");
+            }).catch(() => {
+                showToast("Failed to copy values");
+            });
+        });
+    }
+
+    // Share Button
+    if (btnShare) {
+        btnShare.addEventListener('click', () => {
+            const message = encodeURIComponent(
+                `Generate your Free Fire Sensitivity Profile with Viral Sensi: https://viralsensi.takiff.online/`
+            );
+            window.open(`https://api.whatsapp.com/send?text=${message}`, '_blank');
+        });
+    }
 
     // Elements Tool 2: DPI Calculator Page
     const stockDpiInput = document.getElementById('stockDpiInput');
@@ -120,50 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Elements Tool 4: Custom HUD Calculator Page
-    const clawSelect = document.getElementById('clawSelect');
-    const roleSelect = document.getElementById('roleSelect');
-    const calcHudBtn = document.getElementById('calcHudBtn');
-    const hudOutputBox = document.getElementById('hudOutputBox');
-
-    const hudFireRight = document.getElementById('hudFireRight');
-    const hudGloo = document.getElementById('hudGloo');
-    const hudScope = document.getElementById('hudScope');
-    const hudSprint = document.getElementById('hudSprint');
-    const hudCrouch = document.getElementById('hudCrouch');
-    const hudSwitch = document.getElementById('hudSwitch');
-
-    if (calcHudBtn && hudOutputBox) {
-        calcHudBtn.addEventListener('click', () => {
-            const claw = clawSelect ? clawSelect.value : '2';
-
-            if (claw === '2') {
-                if (hudFireRight) hudFireRight.textContent = '44%';
-                if (hudGloo) hudGloo.textContent = '85%';
-                if (hudScope) hudScope.textContent = '65%';
-                if (hudSprint) hudSprint.textContent = '75%';
-                if (hudCrouch) hudCrouch.textContent = '70%';
-                if (hudSwitch) hudSwitch.textContent = '80%';
-            } else if (claw === '3') {
-                if (hudFireRight) hudFireRight.textContent = '42%';
-                if (hudGloo) hudGloo.textContent = '95%';
-                if (hudScope) hudScope.textContent = '70%';
-                if (hudSprint) hudSprint.textContent = '80%';
-                if (hudCrouch) hudCrouch.textContent = '75%';
-                if (hudSwitch) hudSwitch.textContent = '88%';
-            } else { // 4 Finger Claw
-                if (hudFireRight) hudFireRight.textContent = '40%';
-                if (hudGloo) hudGloo.textContent = '100%';
-                if (hudScope) hudScope.textContent = '75%';
-                if (hudSprint) hudSprint.textContent = '85%';
-                if (hudCrouch) hudCrouch.textContent = '80%';
-                if (hudSwitch) hudSwitch.textContent = '92%';
-            }
-
-            hudOutputBox.style.display = 'block';
-        });
-    }
-
     // Elements Tool 5: Drag Aim Speed Trainer Canvas Logic
     const trainerBox = document.getElementById('trainerBox');
     const trainerOutputBox = document.getElementById('trainerOutputBox');
@@ -186,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const endY = y;
             const endTime = Date.now();
 
-            const distY = startY - endY; // Upward displacement
+            const distY = startY - endY;
             const timeDiff = endTime - startTime;
 
             startTime = 0;
@@ -218,155 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         trainerBox.addEventListener('touchend', (e) => {
             if (e.changedTouches.length > 0) handleEnd(e.changedTouches[0].clientY);
-        });
-    }
-
-    // Autocomplete
-    if (deviceInput) {
-        deviceInput.addEventListener('input', () => {
-            const query = deviceInput.value.toLowerCase().trim();
-            suggestionsBox.innerHTML = '';
-
-            if (query.length < 2) {
-                suggestionsBox.style.display = 'none';
-                return;
-            }
-
-            const matches = deviceDatabase.filter(d => d.toLowerCase().includes(query)).slice(0, 5);
-
-            if (matches.length > 0) {
-                matches.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'suggestion-row';
-                    div.textContent = item;
-                    div.addEventListener('click', () => {
-                        deviceInput.value = item;
-                        suggestionsBox.style.display = 'none';
-                    });
-                    suggestionsBox.appendChild(div);
-                });
-                suggestionsBox.style.display = 'block';
-            } else {
-                suggestionsBox.style.display = 'none';
-            }
-        });
-    }
-
-    document.addEventListener('click', (e) => {
-        if (deviceInput && suggestionsBox && !deviceInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-            suggestionsBox.style.display = 'none';
-        }
-    });
-
-    // Sensitivity Calculation Engine
-    if (generateBtn) {
-        generateBtn.addEventListener('click', () => {
-            const platform = platformSelect ? platformSelect.value : 'Android';
-            const configChoice = ramPlaystyleSelect ? ramPlaystyleSelect.value : '6_drag';
-
-            generateBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> CALCULATING...`;
-            generateBtn.disabled = true;
-
-            setTimeout(() => {
-                generateBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Sensitivity`;
-                generateBtn.disabled = false;
-
-                let baseGeneral = 194;
-                let baseRedDot = 188;
-                let base2x = 178;
-                let base4x = 168;
-                let baseSniper = 125;
-                let baseFreeLook = 160;
-                let recommendedDPI = 480;
-                let fireBtnSize = 44;
-
-                if (configChoice.startsWith('2_')) {
-                    baseGeneral = 198;
-                    baseRedDot = 194;
-                    base2x = 186;
-                    base4x = 176;
-                    recommendedDPI = 520;
-                    fireBtnSize = 41;
-                } else if (configChoice.startsWith('4_')) {
-                    baseGeneral = 195;
-                    baseRedDot = 190;
-                    base2x = 180;
-                    base4x = 170;
-                    recommendedDPI = 500;
-                    fireBtnSize = 43;
-                } else if (configChoice.startsWith('8_')) {
-                    baseGeneral = 184;
-                    baseRedDot = 178;
-                    base2x = 168;
-                    base4x = 158;
-                    recommendedDPI = 420;
-                    fireBtnSize = 48;
-                }
-
-                if (platform === 'iPhone') {
-                    baseGeneral = 196;
-                    baseRedDot = 190;
-                    recommendedDPI = "Default";
-                    fireBtnSize = 43;
-                } else if (platform === 'PC') {
-                    baseGeneral = 75;
-                    baseRedDot = 85;
-                    base2x = 70;
-                    base4x = 60;
-                    baseSniper = 50;
-                    baseFreeLook = 100;
-                    recommendedDPI = 800;
-                    fireBtnSize = 50;
-                }
-
-                valGeneral.textContent = baseGeneral;
-                valRedDot.textContent = baseRedDot;
-                valScope2x.textContent = base2x;
-                valScope4x.textContent = base4x;
-                valSniper.textContent = baseSniper;
-                valFreeLook.textContent = baseFreeLook;
-
-                valDpi.textContent = typeof recommendedDPI === 'number' ? `${recommendedDPI} DPI` : recommendedDPI;
-                valFireButton.textContent = `${fireBtnSize}%`;
-
-                resultsPlaceholder.style.display = 'none';
-                resultsGrid.style.display = 'flex';
-
-                resultsGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 400);
-        });
-    }
-
-    // Copy to Clipboard
-    if (btnCopy) {
-        btnCopy.addEventListener('click', () => {
-            const sensiText = `FREE FIRE SENSITIVITY CONFIGURATION\n` +
-                `Device: ${deviceInput.value || 'Custom Device'} (${platformSelect.value})\n` +
-                `General: ${valGeneral.textContent}\n` +
-                `Red Dot: ${valRedDot.textContent}\n` +
-                `2x Scope: ${valScope2x.textContent}\n` +
-                `4x Scope: ${valScope4x.textContent}\n` +
-                `Sniper Scope: ${valSniper.textContent}\n` +
-                `Free Look: ${valFreeLook.textContent}\n` +
-                `Fire Button Size: ${valFireButton.textContent}\n` +
-                `Recommended DPI: ${valDpi.textContent}\n` +
-                `Calibrated via: https://ffsensi.takiff.online/`;
-
-            navigator.clipboard.writeText(sensiText).then(() => {
-                showToast("Sensitivity config copied to clipboard");
-            }).catch(() => {
-                showToast("Failed to copy settings");
-            });
-        });
-    }
-
-    // Share Button
-    if (btnShare) {
-        btnShare.addEventListener('click', () => {
-            const message = encodeURIComponent(
-                `FF Headshot Sensitivity Generator: https://ffsensi.takiff.online/`
-            );
-            window.open(`https://api.whatsapp.com/send?text=${message}`, '_blank');
         });
     }
 

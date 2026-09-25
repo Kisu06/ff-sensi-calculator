@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- SEO Title & Meta Tags -->
+    <title>404 - Page Not Found | Viral Sensi</title>
+    <meta name="description" content="The page or tool you were looking for does not exist or has been moved on Viral Sensi.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Navbar -->
+    <div class="header-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="logo.svg" alt="Viral Sensi Logo" class="brand-logo" width="36" height="36">
+                <span class="brand-title">Viral <span class="brand-accent">Sensi</span></span>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu desktop-only">
+                <li><a href="index.html"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
+                <li class="dropdown-menu-item">
+                    <a class="dropdown-trigger"><i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-popover">
+                        <a href="index.html"><i class="fa-solid fa-sliders"></i> Sensi Calculator</a>
+                        <a href="dpi-calculator.html"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                        <a href="fire-button-calculator.html"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                        <a href="drag-speed-trainer.html"><i class="fa-solid fa-crosshairs"></i> Drag Speed Trainer</a>
+                    </div>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="mobile-menu-btn mobile-hamburger-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Overlay & Drawer -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-head">
+                <span class="mobile-drawer-title">
+                    <img src="logo.svg" alt="Viral Sensi Logo" class="brand-logo" width="28" height="28">
+                    Viral <span class="brand-accent">Sensi</span>
+                </span>
+                <button type="button" class="mobile-drawer-close close-drawer-btn" id="closeDrawerBtn" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mobile-drawer-body mobile-drawer-links">
+                <a href="index.html" class="drawer-link"><i class="fa-solid fa-sliders"></i> Sensi Calculator</a>
+                <a href="dpi-calculator.html" class="drawer-link"><i class="fa-solid fa-microchip"></i> DPI Multiplier Tool</a>
+                <a href="fire-button-calculator.html" class="drawer-link"><i class="fa-solid fa-bullseye"></i> Fire Button Size Tool</a>
+                <a href="drag-speed-trainer.html" class="drawer-link"><i class="fa-solid fa-crosshairs"></i> Drag Speed Trainer</a>
+                <div class="drawer-divider"></div>
+                <a href="about.html" class="drawer-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+                <a href="contact.html" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 55vh; text-align: center;">
+
+        <div style="background: var(--bg-card); border-radius: 24px; padding: 40px 24px; box-shadow: var(--shadow-soft); max-width: 560px; width: 100%; border: 1px solid var(--border);">
+            
+            <div style="width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: var(--accent-light); border-radius: 20px;">
+                <img src="logo.svg" alt="Viral Sensi Flame" width="52" height="52" style="filter: drop-shadow(0 4px 10px rgba(2, 132, 199, 0.4));">
+            </div>
+
+            <div style="font-family: var(--font-brand); font-size: 3.5rem; font-weight: 900; font-style: italic; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px;">
+                404
+            </div>
+
+            <h1 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px;">
+                Page Not Found
+            </h1>
+
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 26px;">
+                The sensitivity tool, sensitivity guide, or page you were looking for doesn't exist, was moved, or the link was mistyped.
+            </p>
+
+            <a href="index.html" class="btn-master-calculate" style="text-decoration: none; max-width: 280px; margin: 0 auto 20px;">
+                <i class="fa-solid fa-house"></i> Return to Calculator
+            </a>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 18px; margin-top: 10px;">
+                <span style="font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Popular Tools</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
+                    <a href="dpi-calculator.html" class="device-chip" style="text-decoration: none;"><i class="fa-solid fa-microchip"></i> DPI Multiplier</a>
+                    <a href="fire-button-calculator.html" class="device-chip" style="text-decoration: none;"><i class="fa-solid fa-bullseye"></i> Fire Button Size</a>
+                    <a href="drag-speed-trainer.html" class="device-chip" style="text-decoration: none;"><i class="fa-solid fa-crosshairs"></i> Drag Trainer</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin: 24px 0 10px; font-size: 0.85rem; color: var(--text-secondary); text-align: center; max-width: 560px; width: 100%;">
+            Not affiliated with Garena Free Fire.
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-bar">
+        <span class="footer-copy">&copy; 2026 Viral Sensi. All Rights Reserved.</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
